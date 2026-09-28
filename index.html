@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Hair — Velmora | Site Oficial</title>
+<meta name="description" content="Hey Hair Velmora — suplemento para cabelos em cápsulas. Compra segura só pelo site oficial.">
+<!--
+  ============================================================
+  HEY HAIR · VELMORA — LANDING PAGE (checkout direto na página)
+  Direção: beauty premium feminina (Hers/Olly/Ritual/Vital Proteins).
+  ------------------------------------------------------------
+  [EDITAR-CHECKOUT]  4 links em window.HEYHAIR_CHECKOUT (final do arquivo).
+  [EDITAR-FOTOS]     Fotos reais em ./assets/ — a página foi desenhada
+                     PARA a foto (hero grande, kits grandes). Nomes:
+                     produto-hero.png (hero, com alfa) | produto-hero.jpg (fórmula) | kit-1-mes.png | kit-3-meses.png
+                     kit-5-meses.png  | kit-12-meses.png (real pendente)
+                     Enquanto o arquivo não existir, aparece um reservado
+                     elegante (nunca um pote desenhado em CSS).
+  [EDITAR-COMPOSICAO] Benefícios provisórios em linguagem de suplemento;
+                     substituir pelo texto EXATO do rótulo.
+  [EDITAR-DEPOIMENTOS] Fotos reais em assets/dep-*.jpg (antes/depois enviados por clientes).
+  NOTA DE COR: palavra-chave em magenta #D6317A sobre fundos claros.
+  Sobre roxo escuro usa-se #F0609A (mesma família, contraste AA p/ display).
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --roxo-escuro:#2D1B4E; --roxo-fundo:#1D1033; --roxo-medio:#6B3FA0;
+  --lilas:#EDE4F8; --lilas-claro:#F6F1FD;
+  --branco:#FFFFFF; --magenta:#D6317A; --magenta-escuro:#A9235F;
+  --magenta-claro:#F0609A; /* mesma família p/ display sobre fundo escuro (AA) */
+  --tinta:#241640; --tinta-suave:#4A3A6B; --linha:#DCCFF2;
+  --max:1200px;
+  --fonte-titulo:'Fraunces',Georgia,'Times New Roman',serif;
+  --fonte-corpo:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fonte-corpo);color:var(--tinta);background:var(--branco);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+h1,h2{font-family:var(--fonte-titulo);font-weight:600;line-height:1.06;letter-spacing:-.015em}
+h2{font-size:clamp(32px,8.4vw,60px)}
+.mag{color:var(--magenta)}
+.no-escuro .mag{color:var(--magenta-claro)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase}
+.kicker::before{content:"";width:28px;height:2px;background:var(--magenta);border-radius:2px}
+.no-escuro .kicker{color:#D9C6F5}
+.lede{font-size:clamp(16px,4.4vw,19px);margin-top:16px;max-width:34em}
+:focus-visible{outline:3px solid var(--magenta);outline-offset:3px;border-radius:6px}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:17px 38px;border-radius:999px;font-weight:800;font-size:17px;text-decoration:none;border:0;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.btn-magenta{background:var(--magenta);color:#fff;box-shadow:0 14px 34px -10px #d6317aaa,0 2px 0 #a9235f}
+.btn-magenta:hover{background:var(--magenta-escuro);transform:translateY(-2px);box-shadow:0 20px 40px -10px #d6317acc,0 2px 0 #a9235f}
+.btn:active{transform:scale(.98)}
+.btn-claro{background:#fff;color:var(--roxo-escuro);box-shadow:0 14px 34px -14px #00000088}
+.btn-claro:hover{transform:translateY(-2px)}
+
+/* ---------- slots de foto real ---------- */
+.foto-slot{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(150deg,#3d2768,#241640)}
+.foto-slot img.foto-real{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.foto-slot .reservado{margin:24px;border:1.5px dashed #ffffff55;border-radius:18px;padding:28px 24px;text-align:center;color:#CBB8EE;font-size:13.5px;max-width:300px}
+.foto-slot .reservado b{display:block;color:#fff;font-size:14px;margin:10px 0 4px}
+.foto-slot .reservado code{font-size:12px;color:#fff;background:#ffffff1c;border-radius:6px;padding:2px 8px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:60;background:#fffffff0;backdrop-filter:blur(12px);border-bottom:1px solid var(--linha)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.nav-marca{font-weight:800;letter-spacing:.24em;font-size:14px;color:var(--roxo-escuro);text-decoration:none}
+.nav-marca small{display:block;letter-spacing:.42em;font-size:9px;font-weight:600;color:var(--roxo-medio)}
+.nav-links{display:none;gap:30px;font-size:14.5px;font-weight:600;color:var(--tinta-suave)}
+.nav-links a{text-decoration:none;color:inherit}
+.nav-links a:hover{color:var(--magenta)}
+.nav-cta{display:inline-flex;align-items:center;min-height:46px;padding:10px 26px;border-radius:999px;background:var(--magenta);color:#fff;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 10px 24px -10px #d6317aaa}
+
+/* ---------- 1 · HERO ---------- */
+.hero{background:radial-gradient(1100px 520px at 78% 8%,#6b3fa066,transparent 60%),radial-gradient(800px 500px at 10% 90%,#d6317a2e,transparent 60%),linear-gradient(175deg,#3A2363 0%,var(--roxo-escuro) 45%,var(--roxo-fundo) 100%);color:#fff;padding:56px 0 52px;position:relative;overflow:hidden}
+.hero .fios{position:absolute;inset:0;pointer-events:none;opacity:.5}
+.hero-grid{position:relative;display:grid;gap:8px}
+.hero-selo{display:inline-flex;align-items:center;gap:9px;border:1px solid #ffffff38;background:#ffffff12;border-radius:999px;padding:8px 18px;font-weight:700;font-size:13px;letter-spacing:.04em}
+.hero h1{color:#fff;font-size:clamp(40px,11vw,76px);margin-top:22px;max-width:10em}
+.hero h1 em{font-style:italic;font-weight:500}
+.hero .sub{margin-top:18px;color:#DCD0F2;font-size:clamp(16px,4.4vw,19px);max-width:30em}
+.hero .sub strong{color:#fff}
+.hero-ctas{margin-top:28px;display:grid;gap:12px}
+.hero-ctas .btn{width:100%}
+.hero-prova{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13.5px;color:#CBB8EE}
+.hero-prova span{display:inline-flex;align-items:center;gap:8px}
+/* foto protagonista: metade da tela no celular */
+/* pote solto sobre o fundo: sem bg, sem borda, sem radius, sem sombra de caixa */
+.hero-produto{position:relative;margin-top:12px;background:transparent;display:flex;justify-content:center}
+.hero-produto::before{content:"";position:absolute;left:50%;top:44%;width:min(96vw,560px);aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(closest-side,#b78fe6d9,transparent 70%);filter:blur(38px);pointer-events:none}
+.hero-produto::after{content:"";position:absolute;left:50%;bottom:1%;transform:translateX(-50%);width:64%;height:30px;background:radial-gradient(closest-side,#000000b0,transparent 72%);filter:blur(14px);pointer-events:none}
+.hero-produto img{position:relative;z-index:1;background:transparent;border:0;border-radius:0;width:min(86vw,480px);height:auto;filter:drop-shadow(0 34px 30px #00000066)}
+/* ---------- letreiro magenta ---------- */
+.letreiro{background:var(--magenta);color:#fff;overflow:hidden;padding:15px 0}
+.letreiro-trilho{display:flex;width:max-content;animation:deslizar 28s linear infinite}
+.letreiro span{font-family:var(--fonte-titulo);font-style:italic;font-size:17px;padding:0 26px;white-space:nowrap}
+.letreiro b{font-style:normal;padding-right:26px}
+@keyframes deslizar{to{transform:translateX(-50%)}}
+
+/* ---------- 5 · CAUSAS (editorial claro) ---------- */
+#causas{background:#fff}
+.causas-top{display:grid;gap:8px;max-width:22em}
+.causas-lista{margin-top:36px;border-top:2px solid var(--roxo-escuro)}
+.causa-fileira{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--linha)}
+.causa-fileira .n{font-family:var(--fonte-titulo);font-style:italic;font-size:22px;color:var(--magenta)}
+.causa-fileira .t{font-family:var(--fonte-titulo);font-size:clamp(21px,5.6vw,30px);color:var(--roxo-escuro)}
+.causa-frase{margin-top:32px;background:var(--lilas);border-radius:22px;padding:28px 26px;font-size:17px;max-width:40em}
+.causa-frase strong{font-family:var(--fonte-titulo);font-size:22px;display:block;margin-bottom:6px}
+.causas-cta{margin-top:28px;display:grid;gap:12px}
+.causas-cta .btn{width:100%}
+
+/* ---------- 2 · FÓRMULA (3 grupos compactos) ---------- */
+#formula{background:radial-gradient(900px 480px at 12% 0%,#6b3fa055,transparent 60%),radial-gradient(700px 500px at 95% 100%,#d6317a26,transparent 60%),linear-gradient(180deg,#241640,#1D1033);color:#fff;position:relative;overflow:hidden}
+#formula h2{color:#fff}
+#formula .lede{color:#C9B8EA}
+.formula-simples{position:relative;margin-top:8px;display:grid;grid-template-areas:"img" "txt";gap:36px;align-items:center}
+.formula-img{grid-area:img;position:relative;background:transparent;display:flex;justify-content:center}
+.formula-img::before{content:"";position:absolute;left:50%;top:50%;width:min(90vw,560px);aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(closest-side,#b78fe6bb,transparent 70%);filter:blur(34px);pointer-events:none}
+.formula-img img{position:relative;z-index:1;width:100%;max-width:640px;height:auto;background:transparent;border:0;border-radius:0;-webkit-mask-image:radial-gradient(ellipse 74% 70% at 50% 50%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 74% 70% at 50% 50%,#000 60%,transparent 100%);animation:boiar 7s ease-in-out infinite}
+@keyframes boiar{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.formula-txt{grid-area:txt;text-align:center}
+.formula-txt h2{font-size:clamp(40px,10.5vw,64px)}
+.formula-txt .lede-formula{font-size:17px;line-height:1.6;color:#C9B8EA}
+.formula-txt .lede-formula strong{color:#fff;font-weight:600}
+
+/* ---------- 3 · SINERGIA (blocos de cor) ---------- */
+#sinergia{background:var(--lilas)}
+.siner-statement{font-family:var(--fonte-titulo);font-size:clamp(32px,8.4vw,60px);max-width:14em}
+.siner-duo{margin-top:36px;display:grid;gap:0;border-radius:26px;overflow:hidden}
+.siner-bloco{padding:34px 28px}
+.siner-bloco.roxo{background:var(--roxo-escuro);color:#fff}
+.siner-bloco.magenta{background:var(--magenta);color:#fff}
+.siner-bloco h3{font-family:var(--fonte-corpo);font-weight:800;font-size:13px;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+.siner-bloco p{font-family:var(--fonte-titulo);font-size:clamp(22px,6vw,30px);line-height:1.3;margin-top:12px}
+.siner-frase{margin-top:36px;display:flex;gap:16px;align-items:center}
+.siner-frase .traco{flex:none;width:56px;height:3px;background:var(--magenta);border-radius:2px}
+.siner-frase p{font-family:var(--fonte-titulo);font-style:italic;font-size:clamp(22px,6vw,30px)}
+
+/* ---------- 4 · JORNADA (o fio que cresce) ---------- */
+#jornada{background:linear-gradient(180deg,var(--lilas) 0%,#fff 88%);position:relative;overflow:hidden}
+.jornada-deco{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.jornada-deco.a{width:360px;height:360px;background:#d6317a1f;top:-100px;right:-140px}
+.jornada-deco.b{width:300px;height:300px;background:#6b3fa024;bottom:6%;left:-150px}
+.jornada-grid{position:relative;display:grid;gap:12px}
+.jornada-ilustra{display:flex;justify-content:center;background:transparent}
+.jornada-ilustra svg{height:220px;width:auto;overflow:visible}
+.passos{position:relative;margin-top:36px;padding-left:36px;display:grid;gap:32px}
+.passos::before{content:"";position:absolute;left:10px;top:14px;bottom:14px;width:2px;background:linear-gradient(180deg,var(--roxo-medio),var(--magenta))}
+.passo{position:relative}
+.passo::after{content:"";position:absolute;left:-31px;top:26px;width:11px;height:11px;border-radius:50%;background:var(--magenta)}
+.passo .num{display:block;font-family:var(--fonte-titulo);font-weight:700;font-size:44px;line-height:1;color:var(--magenta)}
+.passo h3{font-size:20px;font-weight:800;margin-top:6px}
+.passo p{font-size:16px;color:var(--tinta-suave);margin-top:4px;max-width:26em}
+.jornada-ancora{position:relative;text-align:center;font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(40px,10vw,58px);line-height:1.15;margin:76px 0 0}
+.jornada-cta{position:relative;margin:40px 0 8px;display:flex;justify-content:center}
+.jornada-cta .btn{min-width:min(100%,360px)}
+
+/* ---------- 6 · USO (números gigantes) ---------- */
+#uso{background:var(--lilas-claro)}
+.uso-numero{font-family:var(--fonte-titulo);font-weight:700;font-size:clamp(72px,20vw,140px);line-height:1;color:var(--magenta)}
+.uso-grade{margin-top:32px;display:grid;gap:36px}
+.uso-passo{border-top:2px solid var(--roxo-escuro);padding-top:18px}
+.uso-passo h3{font-family:var(--fonte-corpo);font-weight:800;font-size:19px}
+.uso-passo p{color:var(--tinta-suave);font-size:15.5px;margin-top:6px;max-width:26em}
+
+/* ---------- 7 · ATENDIMENTO (faixa magenta) ---------- */
+#atendimento{background:var(--magenta);color:#fff;padding-left:0;padding-right:0;text-align:center}
+#atendimento .wrap{position:relative;display:grid;justify-items:center}
+#atendimento h2{color:#fff;max-width:20em}
+#atendimento .lede{color:#FBD9E8;margin-left:auto;margin-right:auto;text-align:center}
+.atend-lista{list-style:none;margin-top:28px;display:grid}
+.atend-lista li{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid #ffffff44;font-size:16.5px;font-weight:500}
+.atend-lista li:last-child{border-bottom:1px solid #ffffff44}
+.atend-lista li::before{content:"✓";flex:none;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--magenta);font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+#atendimento .btn{margin-top:28px}
+
+/* ---------- 8 · DEPOIMENTOS (faixa escura própria) ---------- */
+#depoimentos{background:linear-gradient(180deg,#241640,#1D1033);color:#fff;position:relative;overflow:hidden}
+#depoimentos .wrap{text-align:center}
+#depoimentos h2{color:#fff}
+#depoimentos .lede{color:#C9B8EA;margin-left:auto;margin-right:auto}
+.depo-aspas{font-family:var(--fonte-titulo);font-size:120px;line-height:.6;color:var(--magenta-claro);margin-top:32px}
+.depo-viewport{margin-top:24px;overflow-x:auto;position:relative;scrollbar-width:none;cursor:grab;user-select:none;-webkit-user-select:none;scroll-behavior:auto}
+.depo-viewport::-webkit-scrollbar{display:none}
+.depo-viewport.arrastando{cursor:grabbing}
+.depo-trilho{display:flex;width:max-content}
+.depo-trilho figure{flex:none;width:min(64vw,250px);margin:0 16px 0 0;border-radius:20px;overflow:hidden;box-shadow:0 24px 50px -20px #00000090}
+.depo-trilho figure:focus-visible{outline:3px solid var(--magenta-claro);outline-offset:3px}
+.depo-trilho img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.depo-dica{text-align:center;font-size:12.5px;color:#9a86c4;margin-top:12px}
+.lightbox{position:fixed;inset:0;z-index:100;background:#14092bd9;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.lightbox.aberto{opacity:1;pointer-events:auto}
+.lightbox img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius:18px;box-shadow:0 40px 90px -20px #000}
+.lightbox button{position:absolute;top:14px;right:14px;width:48px;height:48px;border-radius:50%;border:0;background:#fff;color:var(--roxo-escuro);font-size:22px;font-weight:800;cursor:pointer}
+.depo-aviso{margin-top:20px;font-size:13px;color:#9a86c4}
+@media (prefers-reduced-motion:reduce){
+  .depo-trilho{animation:none}
+  .depo-viewport{overflow-x:auto}
+}
+
+/* ---------- 10 · KITS (oferta premium) ---------- */
+#kits{background:#fff}
+.kits-head{max-width:30em;margin-left:auto;margin-right:auto;text-align:center}
+.kits-head .lede{margin-left:auto;margin-right:auto}
+.kit-grid{margin-top:40px;padding-top:18px;display:grid;gap:24px}
+.kit{position:relative;border-radius:26px;background:var(--lilas-claro);padding:30px 24px 28px;display:flex;flex-direction:column;text-align:center;transition:transform .2s ease,box-shadow .2s ease}
+.kit:hover{transform:translateY(-6px);box-shadow:0 26px 50px -24px #2d1b4e55}
+.kit-nome{font-family:var(--fonte-titulo);font-weight:600;font-size:clamp(30px,7vw,38px);color:var(--roxo-escuro);line-height:1.1}
+.kit-sub{margin-top:6px;font-size:16px;font-weight:600;color:var(--tinta-suave)}
+.kit-foto{position:relative;background:transparent;margin:24px 0 4px;min-height:200px;display:flex;align-items:flex-end;justify-content:center;overflow:visible}
+.kit-foto::after{content:"";position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:58%;height:18px;background:radial-gradient(closest-side,#00000055,transparent 70%);filter:blur(8px);pointer-events:none}
+.kit-foto img.foto-real{position:relative;inset:auto;z-index:1;width:100%;max-width:230px;max-height:210px;object-fit:contain;background:transparent;filter:drop-shadow(0 16px 16px #00000044)}
+.kit-foto .reservado{border-color:#6B3FA055;color:var(--tinta-suave);margin:12px 6px}
+.kit-foto .reservado b{color:var(--roxo-escuro)}
+.kit-foto .reservado code{color:var(--roxo-escuro);background:#6B3FA022}
+.kit-obs{margin-top:8px;font-size:12.5px;color:#8a7cab}
+.kit-preco{margin-top:28px;display:grid;gap:8px;justify-items:center}
+.kit-preco .parc-top{font-size:15px;font-weight:500;color:var(--tinta-suave)}
+.kit-preco .parc{font-family:var(--fonte-corpo);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;line-height:1.1;color:var(--roxo-escuro);font-size:40px}
+.kit-preco .rs{font-size:.55em;font-weight:700;margin-right:.18em}
+.kit-preco .avista{font-size:16px;font-weight:500;color:var(--tinta-suave)}
+.preco-sep{border:0;border-top:1px solid #2D1B4E22;width:100%;margin:20px 0 0}
+.apoio{display:grid;gap:8px;justify-items:center}
+.apoio .pormes{font-size:15px;color:var(--tinta-suave);min-height:23px}
+.apoio .pormes.vazio{visibility:hidden}
+.kit-economia{display:inline-block;font-size:13px;font-weight:600;background:#14532bcc;color:#fff;border-radius:999px;padding:6px 15px;min-height:31px}
+.kit-neutro{display:inline-block;font-size:13px;font-weight:600;background:var(--lilas);color:var(--roxo-escuro);border-radius:999px;padding:6px 15px;min-height:31px}
+.kit.destaque .kit-preco .parc{color:#fff;font-size:52px}
+.kit.destaque .parc-top,.kit.destaque .avista{color:#E7D9FA}
+.kit.destaque .apoio .pormes{color:var(--magenta-claro)}
+.kit.destaque .preco-sep{border-top-color:#ffffff2c}
+.kit.destaque .kit-economia{background:#d6317a55}
+.kit-nota{margin-top:18px;font-size:12.5px;color:#8a7cab;text-align:center}
+.kit-cta{margin-top:auto;padding-top:28px}
+.kit-cta .btn{width:100%}
+.kit-cta .btn:hover{box-shadow:0 16px 38px -10px #d6317acc,0 2px 0 #a9235f}
+/* ordem no mobile: 5, 3, 12, 1 */
+.kit-5{order:1}
+.kit-3{order:2}
+.kit-12{order:3}
+.kit-1{order:4}
+/* o protagonista (kit de 5 meses) */
+.kit.destaque{background:linear-gradient(170deg,#3A2363,var(--roxo-escuro) 75%);color:#fff;border:2px solid var(--magenta);box-shadow:0 0 0 1px #d6317a55,0 30px 60px -20px #d6317a66}
+.kit.destaque .kit-nome{color:#fff}
+.kit.destaque .kit-sub{color:#D9C6F5}
+.kit.destaque .kit-obs{color:#9a86c4}
+.selo-mais{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--magenta);color:#fff;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:8px 22px;white-space:nowrap;box-shadow:0 10px 24px -8px #d6317a99}
+.kits-segura{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:center;margin-top:40px;font-size:15px;font-weight:600;color:var(--tinta-suave)}
+.kits-segura span{display:inline-flex;align-items:center;gap:9px}
+.kits-segura svg{flex:none}
+@media(min-width:640px){
+  .kit-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .kit-grid>.kit{order:initial}
+}
+@media(min-width:1024px){
+  .kit-grid{grid-template-columns:repeat(4,1fr);gap:20px}
+  .kit.destaque{transform:scale(1.07);z-index:2}
+  .kit.destaque:hover{transform:scale(1.07) translateY(-6px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .kit:hover,.kit.destaque:hover{transform:none}
+  .kit.destaque{transform:none}
+}
+
+/* ---------- 9 · CONFIANÇA ---------- */
+#confianca{background:var(--lilas)}
+.conf-cab{position:relative;text-align:center;display:grid;justify-items:center}
+.conf-duo{position:relative;margin-top:36px;display:grid;gap:24px;align-items:stretch}
+.conf-oficial{position:relative;overflow:hidden;background:radial-gradient(600px 320px at 50% 0%,#6b3fa066,transparent 60%),linear-gradient(180deg,#3A2363,var(--roxo-escuro) 75%);color:#fff;border-radius:26px;padding:32px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.selo-halo{position:relative;display:flex;justify-content:center}
+.selo-halo::before{content:"";position:absolute;left:50%;top:50%;width:200px;aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(closest-side,#d6317a66,#b78fe644 55%,transparent 72%);filter:blur(18px);pointer-events:none;animation:halo-pulso 5s ease-in-out infinite}
+.selo-halo svg{position:relative;width:96px;height:96px;filter:drop-shadow(0 0 18px #d6317a66)}
+@keyframes halo-pulso{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.9}50%{transform:translate(-50%,-50%) scale(1.12);opacity:1}}
+.conf-oficial h3{position:relative;font-family:var(--fonte-titulo);font-weight:600;font-size:32px;color:#fff;line-height:1.2;margin-top:24px;max-width:520px;text-wrap:balance}
+.conf-oficial h3 .mag{color:var(--magenta-claro)}
+.conf-sub{position:relative;color:#D9C6F5;font-size:18px;margin-top:12px;max-width:30em}
+.conf-div{width:80px;height:1px;background:#ffffff2e;border:0;margin:28px auto}
+.conf-lista{position:relative;list-style:none;display:grid;gap:13px;justify-items:center}
+.conf-lista li{display:flex;gap:12px;font-size:17px;color:#EDE4F8;align-items:flex-start;text-align:left;max-width:100%}
+.conf-lista li::before{content:"✓";flex:none;color:var(--magenta-claro);font-weight:800;font-size:19px;line-height:1.4}
+@media (prefers-reduced-motion:reduce){.selo-halo::before{animation:none}}
+.conf-alerta{background:#fff;border:2px solid var(--magenta);border-radius:26px;padding:28px;box-shadow:0 0 0 1px #d6317a22,0 24px 50px -26px #d6317a55;display:flex;flex-direction:column}
+.conf-alerta h3{font-family:var(--fonte-titulo);font-weight:600;font-size:clamp(24px,5.6vw,30px);color:var(--roxo-escuro);margin-top:16px}
+.conf-alerta p{margin-top:10px;font-size:17px;color:var(--tinta-suave)}
+.marcas{margin-top:18px;display:grid;gap:10px}
+.marcas span{display:flex;align-items:center;gap:12px;min-height:52px;border:1px solid var(--linha);border-radius:14px;padding:12px 18px;font-weight:700;font-size:16.5px;color:var(--tinta-suave);transition:background .2s ease}
+.marcas span:hover{background:var(--lilas-claro)}
+.marcas s{text-decoration-thickness:2px}
+.marcas b{margin-left:auto;color:var(--magenta);font-size:22px;line-height:1}
+.conf-rodape{margin-top:auto;padding-top:20px;font-size:15px;font-weight:700;color:var(--roxo-escuro)}
+.conf-fecho{position:relative;margin-top:60px;text-align:center;font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(30px,7.4vw,46px);line-height:1.2}
+.conf-cta{position:relative;display:flex;justify-content:center;margin-top:28px}
+.conf-cta .btn{min-width:min(100%,320px)}
+
+/* ---------- FAQ / FICHA / FOOTER ---------- */
+#faq{background:#fff}
+.faq-grade{margin-top:32px;display:grid}
+.faq-grade details{border-bottom:2px solid var(--linha);padding:20px 4px}
+.faq-grade summary{font-weight:700;cursor:pointer;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px}
+.faq-grade summary::-webkit-details-marker{display:none}
+.faq-grade summary::after{content:"⌄";color:var(--magenta);font-size:22px;flex:none}
+.faq-grade details[open] summary::after{content:"⌃"}
+.faq-grade p{font-size:15px;color:var(--tinta-suave);margin-top:10px;max-width:46em}
+#ficha{background:var(--lilas-claro)}
+.ficha-grid{position:relative;margin-top:36px;display:grid;gap:40px}
+.ficha-lado{min-width:0}
+.ficha-pote{position:relative;background:transparent;display:flex;justify-content:center;margin-top:28px}
+.ficha-pote::before{content:"";position:absolute;left:50%;top:44%;width:min(80vw,340px);aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(closest-side,#b78fe688,transparent 70%);filter:blur(28px);pointer-events:none}
+.ficha-pote::after{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:58%;height:22px;background:radial-gradient(closest-side,#00000044,transparent 70%);filter:blur(10px);pointer-events:none}
+.ficha-pote img{position:relative;z-index:1;width:min(64vw,280px);height:auto;background:transparent;border:0;border-radius:0;filter:drop-shadow(0 20px 20px #00000044)}
+.ficha-lista{list-style:none}
+.ficha-lista li{display:grid;gap:4px;padding:15px 2px;border-bottom:1px solid var(--linha)}
+.ficha-lista li:first-child{border-top:1px solid var(--linha)}
+.ficha-lista .rotulo{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--roxo-medio)}
+.ficha-lista .valor{font-size:18px;font-weight:500;color:var(--roxo-escuro)}
+.aviso-legal{margin-top:32px;background:var(--lilas);border-left:3px solid var(--magenta);border-radius:0 14px 14px 0;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.6;color:var(--tinta)}
+.aviso-legal svg{flex:none;margin-top:2px}
+@media(min-width:960px){
+  #ficha .wrap{max-width:1100px}
+  .ficha-grid{grid-template-columns:35fr 65fr;gap:56px;align-items:start}
+  .ficha-pote img{width:100%;max-width:300px}
+  .ficha-lista li{grid-template-columns:180px 1fr;gap:16px;align-items:baseline}
+}
+footer{background:var(--roxo-fundo);color:#B9A6DE;font-size:14px;padding:72px 0 40px}
+.rodape-top{display:grid;grid-template-areas:"marca" "seguro" "nav";gap:36px}
+.rodape-marca{grid-area:marca}
+.rodape-marca strong{display:block;color:#fff;letter-spacing:.28em;font-size:16px}
+.rodape-marca span{display:block;font-family:var(--fonte-titulo);font-size:22px;color:#fff;margin-top:6px}
+.rodape-marca p{margin-top:10px;color:#B9A6DE;max-width:24em}
+.rodape-nav{grid-area:nav;display:grid;gap:2px;align-content:start}
+.rodape-nav a{color:#EDE4F8;text-decoration:none;font-weight:600;min-height:44px;display:flex;align-items:center}
+.rodape-nav a:hover{color:var(--magenta-claro)}
+.rodape-seguro{grid-area:seguro;list-style:none;display:grid;gap:14px;align-content:start}
+.rodape-seguro li{display:flex;gap:12px;align-items:center;color:#EDE4F8;font-weight:600}
+.rodape-div{border:0;border-top:1px solid #ffffff1f;margin:40px 0 28px}
+.rodape-aviso{font-size:14px;line-height:1.65;color:#B9A6DE;max-width:70em}
+.rodape-copy{margin-top:16px;font-size:14px;color:#9a86c4}
+
+/* ---------- barra fixa ---------- */
+.sticky{position:fixed;inset:auto 0 0 0;z-index:50;background:#fffffff2;backdrop-filter:blur(8px);border-top:1px solid var(--linha);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none}
+.sticky.visivel{display:block}
+.sticky .row{max-width:560px;margin:0 auto;display:flex;gap:12px;align-items:center}
+.sticky .txt{flex:1;font-size:13px;line-height:1.35}
+.sticky .txt b{display:block;font-size:14px;color:var(--roxo-escuro)}
+.sticky .btn{min-height:50px;padding:12px 26px;font-size:15px;flex:none}
+
+/* ---------- microinterações ---------- */
+.revelar{opacity:0;transform:translateY(26px);transition:opacity .6s ease-out,transform .6s ease-out}
+.revelar.visivel{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .revelar{opacity:1;transform:none;transition:opacity .15s}
+  .letreiro-trilho{animation:none}
+  *{animation-duration:.01ms!important}
+}
+
+/* ---------- desktop ---------- */
+@media(min-width:960px){
+  section{padding:104px 0}
+  .nav-links{display:flex}
+  .hero{padding-top:72px;padding-bottom:72px}
+  .hero-grid{grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .hero-ctas{grid-template-columns:auto;justify-content:start}
+  .hero-ctas .btn{min-width:320px}
+  .hero-produto{margin:0}
+  .hero-produto::before{width:560px}
+  .hero-produto img{width:100%;max-width:560px}
+  .causas-top{max-width:none}
+  .causas-lista{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+  .causas-cta{grid-template-columns:auto auto;justify-content:start}
+  .causas-cta .btn{min-width:280px}
+  .formula-simples{grid-template-areas:"img txt";grid-template-columns:1fr 1fr;gap:56px;margin-top:16px}
+  .formula-txt{text-align:left}
+  .formula-txt h2{font-size:clamp(48px,5vw,72px)}
+  .formula-txt .lede{margin-left:0;max-width:24em}
+  .formula-txt .lede-formula{max-width:520px}
+@media (prefers-reduced-motion:reduce){.formula-img img{animation:none}}
+  .siner-duo{grid-template-columns:1fr 1fr}
+  .siner-bloco{padding:48px}
+  .jornada-grid{grid-template-columns:45fr 55fr;gap:56px;align-items:center}
+  .jornada-ilustra{justify-content:flex-end}
+  .jornada-ilustra svg{height:620px}
+  .passos{margin-top:24px;gap:24px}
+  .passo{display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:start}
+  .passo::after{top:18px}
+  .passo .num{font-size:48px}
+  .passo h3{font-size:22px;margin-top:2px}
+  .passo p{margin-top:2px}
+  #jornada .lede{font-size:18px}
+  .jornada-ancora{font-size:clamp(56px,5.4vw,68px);margin-top:100px}
+  .uso-grade{grid-template-columns:1fr 1fr 1fr;gap:48px}
+  .atend-lista{grid-template-columns:1fr 1fr;gap:0 40px}
+  .depo-trilho figure{width:280px}
+  .conf-duo{grid-template-columns:55fr 45fr}
+  .conf-oficial{padding:48px}
+  .selo-halo svg{width:112px;height:112px}
+  .conf-oficial h3{font-size:44px}
+  .conf-alerta{padding:40px}
+  .faq-grade{grid-template-columns:1fr 1fr;gap:0 56px}
+  .rodape-top{grid-template-areas:"marca nav seguro";grid-template-columns:1.2fr 1fr 1fr;gap:48px}
+  footer{padding-bottom:40px}
+  .sticky .row{max-width:var(--max)}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Navegação principal">
+  <div class="wrap">
+    <a class="nav-marca" href="#topo">VELMORA<small>HEY HAIR</small></a>
+    <div class="nav-links">
+      <a href="#formula">Fórmula</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#kits">Kits</a>
+      <a href="#faq">Dúvidas</a>
+    </div>
+    <a class="nav-cta" href="#kits" data-checkout="nav">Ver kits</a>
+  </div>
+</nav>
+
+<!-- ============ 1 · ABERTURA ============ -->
+<header class="hero no-escuro" id="topo">
+  <svg class="fios" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M-40,620 C240,560 320,380 560,360 C800,340 880,520 1120,480 C1300,450 1360,340 1500,320" fill="none" stroke="#B78FE6" stroke-opacity=".35" stroke-width="2"/>
+    <path d="M-40,660 C260,610 360,440 600,420 C840,400 920,580 1160,540 C1340,512 1400,410 1500,390" fill="none" stroke="#F0609A" stroke-opacity=".28" stroke-width="2"/>
+    <path d="M-40,580 C220,510 300,320 540,300 C780,280 860,460 1100,420 C1280,390 1340,280 1500,260" fill="none" stroke="#B78FE6" stroke-opacity=".22" stroke-width="2"/>
+  </svg>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-selo">✦ Site Oficial · Velmora</span>
+      <h1>Cabelos <span class="mag">fortes</span>, saudáveis e <em>cheios de vida!</em></h1>
+      <p class="sub">Hey Hair é o suplemento em cápsulas com <strong>16 nutrientes</strong> que participam da nutrição dos fios — 2 cápsulas ao dia após as refeições.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-magenta" href="#kits" data-checkout="hero">Quero o meu kit</a>
+      </div>
+      <div class="hero-prova">
+        <span>◈ Sem glúten</span>
+        <span>◈ Compra direta no site oficial</span>
+      </div>
+    </div>
+    <div>
+      <!-- [EDITAR-FOTOS] Embalagem em PNG com alfa, solta sobre o fundo (assets/produto-hero.png, cópia exata do original) -->
+      <div class="hero-produto">
+        <img src="assets/produto-hero.png" alt="Embalagem Hey Hair Para Cabelos, da Velmora, com cápsulas" fetchpriority="high">
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="letreiro" aria-hidden="true">
+  <div class="letreiro-trilho" id="letreiroTrilho">
+    <span><b>✦</b>Site oficial Velmora</span><span><b>✦</b>Selo de autenticidade</span><span><b>✦</b>16 nutrientes</span><span><b>✦</b>Sem glúten</span>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ 5 · QUEDA É SINTOMA ============ -->
+<section id="causas">
+  <div class="wrap">
+    <div class="causas-top revelar">
+      <span class="kicker">Entenda seu momento</span>
+      <h2 style="margin-top:14px">Queda capilar é <span class="mag">sintoma.</span></h2>
+      <p class="lede">A queda excessiva pode estar ligada a diferentes fases da vida e do organismo. Por isso, rotina e constância na nutrição fazem diferença.</p>
+    </div>
+    <div class="causas-lista revelar">
+      <div class="causa-fileira"><span class="n">01</span><span class="t">Pós-covid</span></div>
+      <div class="causa-fileira"><span class="n">02</span><span class="t">Estresse</span></div>
+      <div class="causa-fileira"><span class="n">03</span><span class="t">Pós-parto</span></div>
+      <div class="causa-fileira"><span class="n">04</span><span class="t">Alterações hormonais</span></div>
+      <div class="causa-fileira"><span class="n">05</span><span class="t">Emagrecimento</span></div>
+      <div class="causa-fileira"><span class="n">06</span><span class="t">Deficiência nutricional</span></div>
+      <div class="causa-fileira"><span class="n">07</span><span class="t">Uso de medicamentos</span></div>
+      <div class="causa-fileira"><span class="n">08</span><span class="t">Envelhecimento</span></div>
+    </div>
+    <div class="causa-frase revelar"><strong>Nem toda queda tem a mesma causa.</strong>Identificar a causa é essencial para orientar corretamente — e, em caso de dúvida, procure um profissional de saúde.</div>
+    <div class="causas-cta revelar"><a class="btn btn-magenta" href="#kits" data-checkout="causas">Começar minha rotina</a></div>
+  </div>
+</section>
+
+<!-- ============ 2 · FÓRMULA ============ -->
+<section id="formula" class="no-escuro">
+  <div class="wrap" style="position:relative">
+    <!-- Imagem: assets/formula-imagem.png (cópia exata de minoaxido.png, sem recompressão) -->
+    <div class="formula-simples">
+      <div class="formula-img revelar">
+        <img src="assets/formula-imagem.png" alt="Composição da fórmula Hey Hair" fetchpriority="low">
+      </div>
+      <div class="formula-txt">
+        <h2 class="revelar">16 nutrientes.<br>Nenhum <span class="mag">coadjuvante.</span></h2>
+        <p class="lede lede-formula revelar"><strong>Biotina</strong>, vitaminas do complexo B (<strong>B1</strong>, <strong>B2</strong>, <strong>B3</strong>, <strong>B5</strong>, <strong>B6</strong>, <strong>B9</strong> e <strong>B12</strong>), vitaminas <strong>A</strong>, <strong>C</strong>, <strong>D</strong> e <strong>E</strong>, e os minerais <strong>zinco</strong>, <strong>ferro</strong>, <strong>selênio</strong> e <strong>cálcio</strong>. Juntos, participam da nutrição das células, da formação de proteínas e da proteção antioxidante, contribuindo para a manutenção de cabelos com aparência de força e vitalidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · SINERGIA ============ -->
+<section id="sinergia">
+  <div class="wrap">
+    <span class="kicker revelar">Por que funciona</span>
+    <p class="siner-statement revelar" style="margin-top:14px">O diferencial não é um ingrediente. É a <span class="mag">sinergia.</span></p>
+    <div class="siner-duo revelar">
+      <div class="siner-bloco roxo">
+        <h3>Base estrutural</h3>
+        <p>Biotina + Zinco + Complexo B participam da formação e da manutenção dos fios.</p>
+      </div>
+      <div class="siner-bloco magenta">
+        <h3>Proteção celular</h3>
+        <p>Vitaminas C, D e E contribuem para a proteção das células e o equilíbrio.</p>
+      </div>
+    </div>
+    <div class="siner-frase revelar"><span class="traco"></span><p>Fios fortes começam em <span class="mag">células saudáveis.</span></p></div>
+  </div>
+</section>
+
+<!-- ============ 4 · JORNADA ============ -->
+<section id="jornada">
+  <span class="jornada-deco a" aria-hidden="true"></span>
+  <span class="jornada-deco b" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="jornada-grid">
+      <div class="jornada-ilustra" aria-hidden="true">
+        <svg viewBox="0 0 320 620" role="img" aria-label="Ilustração de um fio de cabelo saindo do folículo">
+          <defs>
+            <radialGradient id="haloFio"><stop offset="0" stop-color="#B794E8" stop-opacity=".38"/><stop offset="1" stop-color="#B794E8" stop-opacity="0"/></radialGradient>
+            <linearGradient id="peleFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCCFF2" stop-opacity=".9"/><stop offset="1" stop-color="#DCCFF2" stop-opacity="0"/></linearGradient>
+          </defs>
+          <ellipse cx="160" cy="260" rx="120" ry="230" fill="url(#haloFio)" style="filter:blur(24px)"/>
+          <path id="fioTrilho" d="M168,502 C148,428 194,366 172,284 C150,202 194,142 178,62 C174,40 176,24 184,12" fill="none" stroke="#2D1B4E" stroke-width="8" stroke-linecap="round"/>
+          <path id="fioEco" d="M186,498 C168,430 210,370 190,290 C170,210 212,150 196,70" fill="none" stroke="#D6317A" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+          <g stroke="#B794E8" stroke-width="2" stroke-linecap="round" opacity=".55">
+            <path d="M160,420 l14,-6"/><path d="M178,340 l14,-6"/><path d="M166,260 l14,-6"/><path d="M180,180 l14,-6"/><path d="M178,110 l12,-6"/>
+          </g>
+          <circle cx="138" cy="470" r="6" fill="#D6317A" opacity=".8"/>
+          <circle cx="206" cy="452" r="4.5" fill="#6B3FA0" opacity=".7"/>
+          <circle cx="196" cy="492" r="3.5" fill="#D6317A" opacity=".6"/>
+          <path d="M0,512 C70,500 130,504 190,510 C240,515 280,512 320,508 L320,620 L0,620 Z" fill="url(#peleFade)"/>
+          <path d="M0,512 C70,500 130,504 190,510 C240,515 280,512 320,508" fill="none" stroke="#2D1B4E" stroke-width="3" stroke-linecap="round"/>
+          <ellipse cx="172" cy="540" rx="27" ry="42" transform="rotate(10 172 540)" fill="#2D1B4E"/>
+          <ellipse cx="172" cy="548" rx="14" ry="26" transform="rotate(10 172 548)" fill="#6B3FA0"/>
+          <circle cx="172" cy="556" r="5" fill="#D6317A"/>
+        </svg>
+      </div>
+      <div>
+        <span class="kicker revelar">Do folículo ao fio</span>
+        <h2 class="revelar" style="margin-top:14px">Como nasce um cabelo <span class="mag">saudável</span></h2>
+        <p class="lede revelar">O fio que você vê no espelho é o resultado de um ciclo que começa bem abaixo da pele.</p>
+        <div class="passos">
+          <div class="passo revelar"><span class="num">01</span><div><h3>Folículo capilar</h3><p>Tudo começa na raiz, onde o fio é formado.</p></div></div>
+          <div class="passo revelar"><span class="num">02</span><div><h3>Divisão celular</h3><p>Células se multiplicam para construir o fio.</p></div></div>
+          <div class="passo revelar"><span class="num">03</span><div><h3>Queratina</h3><p>A proteína que dá estrutura e resistência.</p></div></div>
+          <div class="passo revelar"><span class="num">04</span><div><h3>Nascimento do fio</h3><p>O fio novo surge da raiz nutrida.</p></div></div>
+          <div class="passo revelar"><span class="num">05</span><div><h3>Crescimento</h3><p>Com constância, comprimento e vitalidade.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="jornada-ancora revelar">Células saudáveis formam fios <span class="mag">saudáveis.</span></p>
+    <div class="jornada-cta revelar"><a class="btn btn-magenta" href="#kits" data-checkout="jornada">Começar minha rotina</a></div>
+  </div>
+</section>
+
+<!-- ============ 6 · MODO DE USO ============ -->
+<section id="uso">
+  <div class="wrap">
+    <span class="kicker revelar">Rotina simples</span>
+    <h2 class="revelar" style="margin-top:14px"><span class="mag">2 cápsulas</span> ao dia.<br>Nada além disso.</h2>
+    <div class="uso-grade">
+      <div class="uso-passo revelar"><span class="uso-numero">01</span><h3>Após as refeições</h3><p>Com um copo de água, depois do café da manhã ou do almoço.</p></div>
+      <div class="uso-passo revelar"><span class="uso-numero">02</span><h3>Todo dia, mesmo horário</h3><p>Suplementação é constância: o ritual diário sustenta o resultado.</p></div>
+      <div class="uso-passo revelar"><span class="uso-numero">03</span><h3>Com a refeição</h3><p>Nutrientes ingeridos com a refeição participam melhor do metabolismo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 · ATENDIMENTO ============ -->
+<section id="atendimento">
+  <div class="wrap">
+    <span class="kicker revelar" style="color:#fff">Atendimento Velmora</span>
+    <h2 class="revelar" style="margin-top:14px">O maior diferencial não é o produto. É você.</h2>
+    <p class="lede revelar">Você não compra só um pote. Você compra confiança e orientação para atravessar o tratamento com tranquilidade.</p>
+    <ul class="atend-lista revelar">
+      <li>Compra direta no site oficial, com checkout seguro.</li>
+      <li>Selo de autenticidade em todos os kits.</li>
+      <li>Orientações claras de uso e de rotina.</li>
+      <li>Acompanhamento da sua experiência de compra.</li>
+    </ul>
+    <div class="revelar"><a class="btn btn-claro" href="#kits" data-checkout="atendimento">Escolher meu kit</a></div>
+  </div>
+</section>
+
+<!-- ============ 8 · DEPOIMENTOS ============ -->
+<section id="depoimentos" class="no-escuro">
+  <div class="wrap">
+    <span class="kicker revelar">Depoimentos</span>
+    <h2 class="revelar" style="margin-top:14px">Quem usa, <span class="mag">conta.</span></h2>
+    <p class="lede revelar">Experiências pessoais de clientes — nunca prova clínica.</p>
+    <div class="depo-aspas" aria-hidden="true">“</div>
+    <!-- Antes e depois reais enviados por clientes (assets/dep-1..4.jpg). Para trocar a ordem ou adicionar fotos, edite as <figure> abaixo — o JS duplica a trilha sozinho para o loop infinito. -->
+    <div class="depo-viewport revelar">
+      <div class="depo-trilho" id="depoTrilho">
+        <figure tabindex="0"><img src="assets/dep-1.jpg" alt="Antes e depois de cliente Hey Hair — 40 dias de uso" loading="lazy"></figure>
+        <figure tabindex="0"><img src="assets/dep-2.jpg" alt="Antes e depois de cliente Hey Hair — 30 dias de uso" loading="lazy"></figure>
+        <figure tabindex="0"><img src="assets/dep-3.jpg" alt="Antes e depois de cliente Hey Hair — 15 dias de uso" loading="lazy"></figure>
+        <figure tabindex="0"><img src="assets/dep-4.jpg" alt="Antes e depois de cliente Hey Hair — 5 meses de uso" loading="lazy"></figure>
+      </div>
+    </div>
+    <p class="depo-dica revelar">Arraste para explorar · toque na foto para ampliar</p>
+    <p class="depo-aviso revelar">Resultados individuais de clientes — experiência pessoal, nunca prova clínica.</p>
+  </div>
+</section>
+
+<!-- ============ 10 · KITS ============ -->
+<section id="kits">
+  <div class="wrap">
+    <div class="kits-head revelar">
+      <span class="kicker">Escolha seu tratamento</span>
+      <h2 style="margin-top:14px">Um kit para cada <span class="mag">momento.</span></h2>
+      <p class="lede">Toque no kit ideal para ir ao checkout seguro. Quanto maior a constância, melhor a rotina.</p>
+    </div>
+    <!-- Preços preenchidos via objeto KITS no <script> ao final. Fotos: assets/kit-*.png (carregam sozinhas) -->
+    <!-- [EDITAR-FOTOS] assets/kit-1-mes.png · kit-3-meses.png · kit-5-meses.png · kit-12-meses.png (carregam sozinhas) -->
+    <div class="kit-grid">
+      <article class="kit kit-1 revelar">
+        <h3 class="kit-nome">1 mês</h3>
+        <p class="kit-sub" data-sub="kit1m">1 pote</p>
+        <div class="kit-foto foto-slot" data-foto="kit-1-mes.png" data-nome="Kit Hey Hair 1 mês">
+          <div class="reservado">▣<b>Kit 1 mês</b>Arquivo<br><code>kit-1-mes.png</code><br>em <b>assets/</b></div>
+        </div>
+        <div class="kit-preco" data-preco="kit1m"></div>
+        <div class="kit-cta"><a class="btn btn-magenta" data-kit="kit1m" href="https://pay.hest.com.br/e2d092cf-d8ad-463f-8249-20e08f9fad7b">Comprar agora</a></div>
+      </article>
+      <article class="kit kit-3 revelar">
+        <h3 class="kit-nome">3 meses</h3>
+        <p class="kit-sub" data-sub="kit3m">3 potes</p>
+        <div class="kit-foto foto-slot" data-foto="kit-3-meses.png" data-nome="Kit Hey Hair 3 meses">
+          <div class="reservado">▣<b>Kit 3 meses</b>Arquivo<br><code>kit-3-meses.png</code><br>em <b>assets/</b></div>
+        </div>
+        <div class="kit-preco" data-preco="kit3m"></div>
+        <div class="kit-cta"><a class="btn btn-magenta" data-kit="kit3m" href="https://pay.hest.com.br/807e8134-db16-4914-a34b-6fc987775110">Comprar agora</a></div>
+      </article>
+      <article class="kit kit-5 destaque revelar">
+        <span class="selo-mais">Recomendado</span>
+        <h3 class="kit-nome">5 meses</h3>
+        <p class="kit-sub" data-sub="kit5m">5 potes</p>
+        <div class="kit-foto foto-slot" data-foto="kit-5-meses.png" data-nome="Kit Hey Hair 5 meses">
+          <div class="reservado">▣<b>Kit 5 meses</b>Arquivo<br><code>kit-5-meses.png</code><br>em <b>assets/</b></div>
+        </div>
+        <div class="kit-preco" data-preco="kit5m"></div>
+        <div class="kit-cta"><a class="btn btn-magenta" data-kit="kit5m" href="https://pay.hest.com.br/117422f0-1f5e-4ad6-b0ee-688f0c379aa8">Comprar agora</a></div>
+      </article>
+      <article class="kit kit-12 revelar">
+        <!-- Selo "Melhor custo-benefício": adicionar aqui quando os preços confirmarem. -->
+        <h3 class="kit-nome">12 meses</h3>
+        <p class="kit-sub" data-sub="kit12m">12 potes</p>
+        <div class="kit-foto foto-slot" data-foto="kit-12-meses.png" data-nome="Kit Hey Hair 12 meses">
+          <div class="reservado">▣<b>Kit 12 meses</b>Arquivo<br><code>kit-12-meses.png</code><br>em <b>assets/</b></div>
+        </div>
+        <p class="kit-obs">imagem ilustrativa</p>
+        <div class="kit-preco" data-preco="kit12m"></div>
+        <div class="kit-cta"><a class="btn btn-magenta" data-kit="kit12m" href="https://pay.hest.com.br/c50cc118-1696-4d28-906f-a385621663db">Comprar agora</a></div>
+      </article>
+    </div>
+    <p class="kit-nota revelar">Economia calculada em relação à compra de kits de 1 mês.</p>
+    <div class="kits-segura revelar">
+      <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="2" stroke="#1d8a5a" stroke-width="2"/><path d="M8 9V7a4 4 0 018 0v2" stroke="#1d8a5a" stroke-width="2"/></svg>Compra segura</span>
+      <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8L12 2z" stroke="#6B3FA0" stroke-width="1.6" stroke-linejoin="round"/></svg>Site oficial Velmora</span>
+      <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="9" r="5" stroke="#D6317A" stroke-width="2"/><path d="M9.5 9l1.8 1.8 3.2-3.4" stroke="#D6317A" stroke-width="2" stroke-linecap="round"/><path d="M8.5 13.5L7 21l5-2.5L17 21l-1.5-7.5" stroke="#D6317A" stroke-width="2" stroke-linejoin="round"/></svg>Selo de autenticidade</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 · CONFIANÇA ============ -->
+<section id="confianca">
+  <div class="wrap">
+    <div class="conf-cab">
+      <span class="kicker revelar">Compra protegida</span>
+      <h2 class="revelar" style="margin-top:14px">Segurança de <span class="mag">verdade.</span></h2>
+      <p class="lede revelar" style="text-align:center">Sua compra merece um produto original.</p>
+    </div>
+    <div class="conf-duo">
+      <div class="conf-oficial revelar">
+        <span class="selo-halo" aria-hidden="true"><svg width="112" height="112" viewBox="0 0 72 72" fill="none"><path d="M28 40l-7 20 15-7.5L51 60l-7-20" fill="#6B3FA0"/><circle cx="36" cy="26" r="20" fill="#D6317A"/><circle cx="36" cy="26" r="15" stroke="#fff" stroke-width="2" opacity=".7"/><path d="M29 26l5 5 9-10" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h3><span class="mag">Site oficial</span>, do clique à entrega</h3>
+        <p class="conf-sub">Sua compra direta com a Velmora, do pedido à entrega.</p>
+        <hr class="conf-div">
+        <ul class="conf-lista">
+          <li>Checkout direto nesta página</li>
+          <li>Selo de autenticidade Velmora em todos os kits</li>
+          <li>Acompanhamento da sua experiência de compra</li>
+        </ul>
+      </div>
+      <div class="conf-alerta revelar">
+        <span aria-hidden="true"><svg width="52" height="52" viewBox="0 0 24 24" fill="none"><path d="M12 3l10 17H2L12 3z" stroke="#D6317A" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v5" stroke="#D6317A" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="#D6317A"/></svg></span>
+        <h3>Cuidado com falsificações</h3>
+        <p>Produtos fora do site oficial não têm garantia de procedência. Não compre em:</p>
+        <div class="marcas">
+          <span><s>Shopee</s><b>×</b></span>
+          <span><s>Mercado Livre</s><b>×</b></span>
+          <span><s>OLX</s><b>×</b></span>
+        </div>
+        <p class="conf-rodape">Confira sempre o selo de autenticidade.</p>
+      </div>
+    </div>
+    <p class="conf-fecho revelar">Compre apenas pelo <span class="mag">site oficial.</span></p>
+    <div class="conf-cta revelar"><a class="btn btn-magenta" href="#kits">Escolher meu kit</a></div>
+  </div>
+</section>
+
+<!-- ============ FAQ + FICHA ============ -->
+<section id="faq">
+  <div class="wrap">
+    <span class="kicker revelar">Dúvidas</span>
+    <h2 class="revelar" style="margin-top:14px">Perguntas <span class="mag">frequentes</span></h2>
+    <div class="faq-grade">
+      <details class="revelar"><summary>Como devo tomar o Hey Hair?</summary><p>2 cápsulas ao dia, preferencialmente após as refeições, com água. Siga a rotina todos os dias.</p></details>
+      <details class="revelar"><summary>O produto trata queda intensa ou calvície?</summary><p>Não. Hey Hair é um suplemento: seus nutrientes contribuem para a nutrição dos fios e participam de funções do organismo. Ele não trata doenças nem garante resultados. Em caso de queda intensa, procure um profissional de saúde.</p></details>
+      <details class="revelar"><summary>Preciso de receita para usar?</summary><p>Não. É um suplemento alimentar para adultos e não exige receita. Gestantes, lactantes e pessoas com condições de saúde devem consultar um profissional antes de usar.</p></details>
+      <details class="revelar"><summary>Posso usar todos os dias?</summary><p>Sim. O Hey Hair foi desenvolvido para uso diário — a constância é o principal fator de uma boa rotina.</p></details>
+      <details class="revelar"><summary>Onde compro com segurança?</summary><p>Somente nesta página, no site oficial. Não vendemos em Shopee, Mercado Livre ou OLX — produtos nesses canais podem ser falsificados.</p></details>
+      <details class="revelar"><summary>Como recebo meu pedido?</summary><p>Após a confirmação do pagamento no checkout, você recebe as atualizações do pedido pelos dados informados na compra.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="ficha">
+  <div class="wrap">
+    <div class="ficha-grid">
+      <div class="ficha-lado">
+        <span class="kicker revelar">Transparência</span>
+        <h2 class="revelar" style="margin-top:14px">Ficha <span class="mag">técnica</span></h2>
+        <div class="ficha-pote revelar">
+          <img src="assets/produto-hero.png" alt="Embalagem Hey Hair Para Cabelos, da Velmora" loading="lazy">
+        </div>
+      </div>
+      <ul class="ficha-lista revelar">
+        <li><span class="rotulo">Produto</span><span class="valor">Hey Hair – Para Cabelos</span></li>
+        <li><span class="rotulo">Marca</span><span class="valor">Velmora</span></li>
+        <li><span class="rotulo">Apresentação</span><span class="valor">60 cápsulas de 600 mg</span></li>
+        <li><span class="rotulo">Peso líquido</span><span class="valor">36 g</span></li>
+        <li><span class="rotulo">Modo de uso</span><span class="valor">2 cápsulas ao dia, preferencialmente após as refeições</span></li>
+        <li><span class="rotulo">Glúten</span><span class="valor">Sem glúten</span></li>
+        <li><span class="rotulo">Fórmula completa</span><span class="valor">16 nutrientes (vitaminas e minerais)</span></li>
+        <li><span class="rotulo">Conservação</span><span class="valor">Local seco e fresco, ao abrigo de luz</span></li>
+      </ul>
+    </div>
+    <p class="aviso-legal revelar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#D6317A" stroke-width="2"/><path d="M12 11v5" stroke="#D6317A" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="7.5" r="1.3" fill="#D6317A"/></svg><span>Suplemento alimentar. Não é medicamento. Gestantes, lactantes, crianças e pessoas com condições de saúde devem consultar um profissional antes de usar.</span></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="rodape-top">
+      <div class="rodape-marca">
+        <strong>VELMORA</strong>
+        <span>Hey Hair</span>
+        <p>Nutrição para cabelos fortes e saudáveis.</p>
+      </div>
+      <nav class="rodape-nav" aria-label="Navegação do rodapé">
+        <a href="#formula">Fórmula</a>
+        <a href="#uso">Como usar</a>
+        <a href="#kits">Kits</a>
+        <a href="#confianca">Segurança</a>
+        <a href="#ficha">Ficha técnica</a>
+      </nav>
+      <ul class="rodape-seguro">
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8L12 2z" stroke="#B794E8" stroke-width="1.6" stroke-linejoin="round"/></svg>Site oficial Velmora</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="2" stroke="#B794E8" stroke-width="2"/><path d="M8 9V7a4 4 0 018 0v2" stroke="#B794E8" stroke-width="2"/></svg>Checkout seguro</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="9" r="5" stroke="#F0609A" stroke-width="2"/><path d="M9.5 9l1.8 1.8 3.2-3.4" stroke="#F0609A" stroke-width="2" stroke-linecap="round"/><path d="M8.5 13.5L7 21l5-2.5L17 21l-1.5-7.5" stroke="#F0609A" stroke-width="2" stroke-linejoin="round"/></svg>Selo de autenticidade</li>
+      </ul>
+    </div>
+    <hr class="rodape-div">
+    <p class="rodape-aviso">Este produto é um suplemento alimentar, não é um medicamento. Suplementos alimentares contribuem para a nutrição e não substituem uma alimentação equilibrada nem orientação profissional. Gestantes, lactantes, crianças e pessoas com condições de saúde devem consultar um profissional antes de usar.</p>
+    <p class="rodape-copy">© 2026 Velmora. Todos os direitos reservados.<span id="rodapeEmpresa"></span></p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button type="button" aria-label="Fechar">×</button>
+  <img src="assets/dep-1.jpg" alt="">
+</div>
+
+<div class="sticky" id="stickyBar" role="region" aria-label="Acesso rápido à compra">
+  <div class="row">
+    <div class="txt"><b>Hey Hair · Velmora</b>Cabelos fortes, saudáveis e cheios de vida.</div>
+    <a class="btn btn-magenta" href="#kits" data-checkout="sticky">Ver kits</a>
+  </div>
+</div>
+
+<script>
+/* DADOS DA EMPRESA — preencha quando tiver; vazio = não aparece. */
+var EMPRESA = {razaoSocial:"", cnpj:""};
+(function(){
+  var partes = [];
+  if (EMPRESA.razaoSocial) partes.push(EMPRESA.razaoSocial);
+  if (EMPRESA.cnpj) partes.push("CNPJ " + EMPRESA.cnpj);
+  if (partes.length){
+    var el = document.getElementById("rodapeEmpresa");
+    if (el) el.textContent = " " + partes.join(" · ");
+  }
+})();
+
+/* DADOS DOS KITS — fonte única de verdade para edição. Valores idênticos aos do checkout. */
+var KITS = {
+  kit1m:  {potes:"1 pote · 60 cápsulas",   parc:"23,34", avista:"197,00", pormes:null,    economia:null},
+  kit3m:  {potes:"3 potes · 180 cápsulas", parc:"30,50", avista:"297,00", pormes:"99,00", economia:"294"},
+  kit5m:  {potes:"5 potes · 300 cápsulas", parc:"40,70", avista:"397,00", pormes:"79,40", economia:"588"},
+  kit12m: {potes:"12 potes · 720 cápsulas",parc:"71,31", avista:"697,00", pormes:"58,08", economia:"1.667"}
+};
+document.querySelectorAll(".kit-preco[data-preco]").forEach(function(box){
+  var d = KITS[box.getAttribute("data-preco")];
+  if (!d) return;
+  var card = box.closest(".kit");
+  var sub = card ? card.querySelector(".kit-sub") : null;
+  if (sub) sub.textContent = d.potes;
+  var html = '<p class="parc-top">12x de</p>'
+    + '<p class="parc"><span class="rs">R$</span><span>' + d.parc + '</span></p>'
+    + '<p class="avista">ou R$ ' + d.avista + ' à vista</p>'
+    + '<hr class="preco-sep">'
+    + '<div class="apoio">';
+  if (d.pormes) html += '<p class="pormes">equivale a R$ ' + d.pormes + ' por mês</p>';
+  else html += '<p class="pormes vazio" aria-hidden="true">&nbsp;</p>';
+  if (d.economia) html += '<span class="kit-economia">Economize R$ ' + d.economia + '</span>';
+  else html += '<span class="kit-neutro">Ideal para testar</span>';
+  html += '</div>';
+  box.innerHTML = html;
+});
+window.HEYHAIR_CHECKOUT = {
+  kit1m:  "https://pay.hest.com.br/e2d092cf-d8ad-463f-8249-20e08f9fad7b",
+  kit3m:  "https://pay.hest.com.br/807e8134-db16-4914-a34b-6fc987775110",
+  kit5m:  "https://pay.hest.com.br/117422f0-1f5e-4ad6-b0ee-688f0c379aa8",
+  kit12m: "https://pay.hest.com.br/c50cc118-1696-4d28-906f-a385621663db"
+};
+(function(){
+  var C = window.HEYHAIR_CHECKOUT || {};
+  document.querySelectorAll("[data-kit]").forEach(function(a){
+    var key = a.getAttribute("data-kit");
+    if (C[key] && C[key].indexOf("http") === 0) a.href = C[key];
+    a.setAttribute("rel","noopener");
+  });
+  // Letreiro: duplica o conteúdo para rolagem contínua
+  var trilho = document.getElementById("letreiroTrilho");
+  if (trilho) trilho.innerHTML += trilho.innerHTML;
+  // Depoimentos: duplica a trilha para o loop infinito
+  var depo = document.getElementById("depoTrilho");
+  if (depo) depo.innerHTML += depo.innerHTML;
+  // Carrossel de depoimentos: autoplay (rAF com posição float) + gesto manual + zoom.
+  // Sem flags presas: "deve rodar?" é calculado em um só lugar (tempo + zoom + visibilidade).
+  (function(){
+    var view = document.querySelector(".depo-viewport");
+    var track = document.getElementById("depoTrilho");
+    if (!view || !track) return;
+    var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var VEL = 40;      // px por segundo
+    var ESPERA = 2500; // ms após o último gesto
+    var position = view.scrollLeft;
+    var ultimoGesto = -ESPERA;
+    var zoomAberto = false;
+    var visivel = true;
+    var autoNaFrame = false;
+    function agora(){ return performance.now(); }
+    function deveRodar(){
+      if (reduz) return false;
+      if (zoomAberto) return false;
+      if (!visivel) return false;
+      if (document.visibilityState !== "visible") return false;
+      if (agora() - ultimoGesto < ESPERA) return false;
+      return true;
+    }
+    function metade(){ return track.scrollWidth / 2; }
+    var ultimoT = null;
+    function passo(t){
+      if (ultimoT === null) ultimoT = t;
+      var dt = Math.min(100, t - ultimoT);
+      ultimoT = t;
+      autoNaFrame = false;
+      if (deveRodar()){
+        position += VEL * dt / 1000;
+        var m = metade();
+        if (m > 0 && position >= m) position -= m;
+        view.scrollLeft = position;
+        autoNaFrame = true;
+      }
+      requestAnimationFrame(passo);
+    }
+    // Todo scroll (auto ou manual): mantém o loop infinito sem salto e,
+    // fora do autoplay, sincroniza a posição float com o gesto do usuário.
+    view.addEventListener("scroll", function(){
+      var m = metade();
+      if (m > 0 && (view.scrollLeft >= m || view.scrollLeft < 0)){
+        var delta = view.scrollLeft >= m ? -m : m;
+        position += delta;
+        view.scrollLeft += delta;
+        return;
+      }
+      if (!autoNaFrame) position = view.scrollLeft;
+    }, {passive:true});
+    // Só roda com o carrossel na tela.
+    if ("IntersectionObserver" in window){
+      new IntersectionObserver(function(entries){
+        visivel = entries[0].isIntersecting;
+      }, {threshold: 0.05}).observe(view);
+    }
+    // Pausa: qualquer gesto. Sincroniza a posição para retomar do ponto exato.
+    function marcarGesto(){
+      ultimoGesto = agora();
+      position = view.scrollLeft;
+    }
+    ["pointerdown", "touchstart"].forEach(function(ev){
+      view.addEventListener(ev, marcarGesto, {passive:true});
+    });
+    view.addEventListener("wheel", marcarGesto, {passive:true});
+    view.addEventListener("pointerenter", function(e){
+      if (e.pointerType === "mouse") marcarGesto();
+    }, {passive:true});
+    view.addEventListener("focusin", marcarGesto);
+    ["pointerup", "pointercancel", "touchend", "mouseleave", "focusout"].forEach(function(ev){
+      view.addEventListener(ev, function(){ ultimoGesto = agora(); }, {passive:true});
+    });
+    // Arrastar com o mouse.
+    var arrastando = false, iniX = 0, iniScroll = 0;
+    var downX = 0, downY = 0;
+    view.addEventListener("pointerdown", function(e){
+      downX = e.clientX; downY = e.clientY;
+      if (e.pointerType !== "mouse") return;
+      arrastando = true;
+      iniX = e.clientX; iniScroll = view.scrollLeft;
+      view.classList.add("arrastando");
+    });
+    window.addEventListener("pointermove", function(e){
+      if (!arrastando) return;
+      ultimoGesto = agora();
+      view.scrollLeft = iniScroll - (e.clientX - iniX);
+    }, {passive:true});
+    window.addEventListener("pointerup", function(){
+      arrastando = false;
+      view.classList.remove("arrastando");
+    });
+    // Zoom: só abre em clique real (limite de 6px). Teclado (Enter/Espaço) também abre.
+    var lb = document.getElementById("lightbox");
+    var lbImg = lb.querySelector("img");
+    var ultimaFigura = null;
+    function abrirZoom(fig){
+      var img = fig.querySelector("img");
+      ultimaFigura = fig;
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add("aberto");
+      zoomAberto = true;
+      marcarGesto();
+      document.body.style.overflow = "hidden";
+      lb.querySelector("button").focus();
+    }
+    track.addEventListener("click", function(e){
+      var fig = e.target.closest("figure");
+      if (!fig) return;
+      var teclado = (e.clientX === 0 && e.clientY === 0);
+      if (!teclado && Math.hypot(e.clientX - downX, e.clientY - downY) > 6) return;
+      abrirZoom(fig);
+    });
+    track.addEventListener("keydown", function(e){
+      if ((e.key === "Enter" || e.key === " ") && e.target.closest("figure")){
+        e.preventDefault();
+        abrirZoom(e.target.closest("figure"));
+      }
+    });
+    function fecharLb(){
+      if (!lb.classList.contains("aberto")) return;
+      lb.classList.remove("aberto");
+      zoomAberto = false;
+      document.body.style.overflow = "";
+      ultimoGesto = agora() - ESPERA + 1000; // retoma ~1 s depois
+      if (ultimaFigura && ultimaFigura.focus) ultimaFigura.focus({preventScroll:true});
+    }
+    lb.querySelector("button").addEventListener("click", fecharLb);
+    lb.addEventListener("click", function(e){ if (e.target === lb) fecharLb(); });
+    addEventListener("keydown", function(e){ if (e.key === "Escape") fecharLb(); });
+  })();
+  // [EDITAR-FOTOS] — cada .foto-slot[data-foto] carrega assets/<arquivo> se existir.
+  // Enquanto não existir, o reservado elegante permanece (sem pote desenhado).
+  // Os slots dos kits são pesados: só começam a baixar quando a seção se aproxima da tela.
+  function carregarSlot(slot){
+    if (!slot || slot.getAttribute("data-carregado") === "1") return;
+    slot.setAttribute("data-carregado", "1");
+    var arquivo = slot.getAttribute("data-foto");
+    var probe = new Image();
+    probe.onload = function(){
+      var img = document.createElement("img");
+      img.className = "foto-real";
+      img.src = "assets/" + arquivo;
+      img.alt = slot.getAttribute("data-nome") || "Foto do produto Hey Hair";
+      img.loading = "lazy";
+      img.decoding = "async";
+      slot.insertBefore(img, slot.firstChild);
+      var r = slot.querySelector(".reservado");
+      if (r) r.style.display = "none";
+    };
+    probe.src = "assets/" + arquivo;
+  }
+  var slotsKits = document.querySelectorAll("#kits .foto-slot[data-foto]");
+  if ("IntersectionObserver" in window && slotsKits.length){
+    var ioFotos = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          carregarSlot(e.target);
+          ioFotos.unobserve(e.target);
+        }
+      });
+    }, {rootMargin:"500px 0px"});
+    slotsKits.forEach(function(slot){ ioFotos.observe(slot); });
+  } else {
+    slotsKits.forEach(carregarSlot);
+  }
+  document.querySelectorAll(".foto-slot[data-foto]:not(#kits .foto-slot)").forEach(carregarSlot);
+  // Barra fixa aparece após o hero e some na seção de kits
+  var bar = document.getElementById("stickyBar");
+  function onScroll(){
+    var passouHero = window.scrollY > 560;
+    var kits = document.getElementById("kits").getBoundingClientRect();
+    var nosKits = kits.top < innerHeight * .6 && kits.bottom > innerHeight * .4;
+    bar.classList.toggle("visivel", passouHero && !nosKits);
+  }
+  addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+  // O fio cresce com o scroll; com reduced-motion, aparece completo
+  (function(){
+    var fio = document.getElementById("fioTrilho");
+    var eco = document.getElementById("fioEco");
+    if (!fio || !eco) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var trilhos = [fio, eco];
+    trilhos.forEach(function(p){
+      var L = p.getTotalLength();
+      p.style.strokeDasharray = L;
+      p.style.strokeDashoffset = L;
+    });
+    var secao = document.getElementById("jornada");
+    function cresce(){
+      var r = secao.getBoundingClientRect();
+      var total = Math.max(1, r.height - window.innerHeight * 0.4);
+      var prog = Math.min(1, Math.max(0, (window.innerHeight * 0.85 - r.top) / total));
+      trilhos.forEach(function(p){
+        p.style.strokeDashoffset = p.getTotalLength() * (1 - prog);
+      });
+    }
+    addEventListener("scroll", cresce, {passive:true});
+    cresce();
+  })();
+  // Entrada ao rolar: uma vez, com cascata entre irmãos
+  var els = document.querySelectorAll(".revelar");
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          var sibs = e.target.parentElement ? e.target.parentElement.children : [];
+          var i = Array.prototype.indexOf.call(sibs, e.target);
+          e.target.style.transitionDelay = Math.min(Math.max(i,0),5) * 80 + "ms";
+          e.target.classList.add("visivel");
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.1});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add("visivel"); });
+  }
+})();
+</script>
+</body>
+</html>
